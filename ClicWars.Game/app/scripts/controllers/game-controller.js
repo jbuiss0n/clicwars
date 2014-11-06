@@ -14,7 +14,7 @@ angular
     'MapService',
     'MobileService',
     function($scope, $cookieStore, PACKET, GamePacket, ContentService, SocketService, KeyboardService, WorldService, MapService, MobileService) {
-      var self = this, _isLoad = false;
+      var self = this, _isConnected = false;
 
       var gameToken = $cookieStore.get('game-token')
 
@@ -26,7 +26,7 @@ angular
 
         createjs.Ticker.setFPS(45);
         createjs.Ticker.addEventListener('tick', function() {
-          if (_isLoad) {
+          if (_isConnected) {
             MobileService.update();
             MapService.update();
             WorldService.update();
@@ -34,28 +34,27 @@ angular
         });
       };
 
+      var onDisconnected = function() {
+        _isConnected = false;
+      };
+
       var onLoad = function(packet) {
         MobileService.reset();
         MapService.reset();
         WorldService.reset();
-        _isLoad = true;
+        _isConnected = true;
       };
 
       var onDestroy = function() {
+        _isConnected = false;
         createjs.Ticker.removeAllEventListeners();
         SocketService.close();
       };
 
-      $scope.respawn = function() {
-        //SocketService.send(new PlayerRespawnRequestPacket($rootScope.serial));
-        //$window.location.reload();
-      };
-
-      $scope.$on('$destroy', onDestroy);
-
       ContentService.init(function() {
 
         SocketService.bind(SocketService.EVENT.CONNECTED, onConnected);
+        SocketService.bind(SocketService.EVENT.DISCONNECTED, onDisconnected);
         SocketService.bind(PACKET.MAP_EVENT.LOAD, onLoad);
 
         KeyboardService.init();
@@ -65,4 +64,6 @@ angular
 
         SocketService.start(CONFIG.SERVER_LOCATION);
       });
+
+      $scope.$on('$destroy', onDestroy);
     }]);

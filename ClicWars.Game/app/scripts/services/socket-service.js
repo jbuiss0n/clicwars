@@ -5,11 +5,35 @@ angular
   .service('SocketService', [function() {
     var ws, handlers = [], self = this;
 
+    var raiseEvent = function(trigger, packet) {
+      if (handlers[trigger]) {
+        handlers[trigger].forEach(function(handler) {
+          handler(packet);
+        });
+      }
+    };
+
+    var onSocketOpen = function() {
+      raiseEvent(self.EVENT.CONNECTED);
+    };
+
+    var onSocketClose = function() {
+      raiseEvent(self.EVENT.DISCONNECTED);
+    };
+
+    var onSocketError = function() {
+      raiseEvent(self.EVENT.ERROR);
+    };
+
+    var onSocketMessage = function(event) {
+      var packet = JSON.parse(event.data.substring(4));
+      raiseEvent(packet.Id, packet);
+    };
+
     self.EVENT = {
       CONNECTED: 'GAME_CONNECTED',
       DISCONNECTED: 'GAME_DISCONNECTED',
-      ERROR: 'GAME_ERROR',
-      MESSAGE: 'GAME_MESSAGE',
+      ERROR: 'GAME_ERROR'
     };
 
     self.start = function(location) {
@@ -33,33 +57,5 @@ angular
     self.close = function() {
       handlers = [];
       ws.close();
-    };
-
-    var raiseEvent = function(trigger, packet) {
-      if (handlers[trigger]) {
-        handlers[trigger].forEach(function(handler) {
-          handler(packet);
-        });
-      }
-    };
-
-    var onSocketOpen = function() {
-      raiseEvent(self.EVENT.CONNECTED);
-    };
-
-    var onSocketClose = function() {
-      raiseEvent(self.EVENT.DISCONNECTED);
-    };
-
-    var onSocketError = function() {
-      raiseEvent(self.EVENT.ERROR);
-    };
-
-    var onSocketMessage = function(event) {
-      raiseEvent(self.EVENT.MESSAGE, event);
-
-      var packet = JSON.parse(event.data.substring(4));
-
-      raiseEvent(packet.Id, packet);
     };
   }]);

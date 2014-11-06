@@ -33,20 +33,6 @@ angular
         this.Serial = serial;
         this.Direction = direction;
       },
-      DeathPacket: function() {
-      },
-      StatusPacket: function(serial, body, mana, hits, manaMax, hitsMax, speed, regenHits, regenMana) {
-        this.Id = PACKET.MOBILE_EVENT.STATUS;
-        this.Serial = serial;
-        this.Body = body;
-        this.Mana = mana;
-        this.Hits = hits;
-        this.ManaMax = manaMax;
-        this.HitsMax = hitsMax;
-        this.Speed = speed;
-        this.RegenHits = regenHits;
-        this.RegenMana = regenMana;
-      },
       FireballPacket: function(x, y) {
         this.Id = PACKET.MOBILE_EVENT.FIREBALL;
         this.X = x;

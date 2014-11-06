@@ -171,7 +171,7 @@ namespace WebServer.Network.Packet
 		public int Serial { get; set; }
 
 		public RespawnRequestPacket()
-			: base(PacketIds.RespawnRequest)
+			: base(PacketIds.PlayerRespawnRequest)
 		{
 		}
 

@@ -9,7 +9,7 @@
       var self = this;
 
       var onStatus = function(packet) {
-        $scope.bodyBackgroundPosition = getBodyImage(packet.Body);
+        $scope.bodyBackgroundPosition = getBodyPosition(packet.Body);
 
         $scope.hits = packet.Hits;
         $scope.maxHits = packet.HitsMax;
@@ -24,11 +24,11 @@
         $scope.$apply();
       };
 
-      var getBodyImage = function(body) {
+      var getBodyPosition = function(body) {
         var x = (body % 16) * -64;
         var y = (Math.floor(body / 16) * -128) - 64;
         return x + 'px ' + y + 'px';
       };
 
-      SocketService.bind(PACKET.MOBILE_EVENT.STATUS, onStatus);
+      SocketService.bind(PACKET.PLAYER_EVENT.STATUS, onStatus);
     }]);

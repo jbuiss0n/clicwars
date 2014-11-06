@@ -20,15 +20,15 @@ namespace WebServer.Network.Packet
 		public const int MobileRemoving = 0x31;
 		public const int MobileMoving = 0x32;
 
-		public const int Death = 0x40;
-		public const int PlayerStatus = 0x41;
+		public const int PlayerStatus = 0x40;
+		public const int PlayerDeath = 0x41;
+		public const int PlayerRespawnRequest = 0x42;
 
 		public const int FireballRequest = 0x50;
 
 		public const int Effect = 0x60;
 		public const int ChatMessage = 0x61;
 
-		public const int PlayerDeath = 0x70;
 		public const int RespawnRequest = 0x71;
 
 	}

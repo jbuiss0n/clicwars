@@ -22,7 +22,7 @@ namespace WebServer.Network.Packet
 			Register(PacketIds.LoginRequest, false, typeof(LoginRequestPacket), new OnPacketReceive(LoginRequest));
 			Register(PacketIds.MovementRequest, false, typeof(MovementRequestPacket), new OnPacketReceive(MovementRequest));
 			Register(PacketIds.FireballRequest, false, typeof(FireballRequestPacket), new OnPacketReceive(FireballRequest));
-			Register(PacketIds.RespawnRequest, false, typeof(RespawnRequestPacket), new OnPacketReceive(RespawnRequest));
+			Register(PacketIds.PlayerRespawnRequest, false, typeof(RespawnRequestPacket), new OnPacketReceive(RespawnRequest));
 
 			Register(PacketIds.ChatMessage, false, typeof(ChatMessagePacket), new OnPacketReceive(ChatMessage));
 		}

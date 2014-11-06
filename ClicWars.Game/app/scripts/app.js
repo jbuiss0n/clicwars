@@ -30,7 +30,8 @@ angular
         url: '',
         views: {
           'screen': {
-            templateUrl: 'views/screen/main.html'
+            templateUrl: 'views/screen/main.html',
+            controller: 'ScreenController'
           },
           'player': {
             templateUrl: 'views/partials/player.html',
