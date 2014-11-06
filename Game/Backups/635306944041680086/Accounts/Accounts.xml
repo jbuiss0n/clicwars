@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<accounts count="2">
+	<account>
+		<username>Herumor</username>
+		<password>28-6B-56-84-6E-CB-62-21-72-98-C0-8B-1F-5C-40-E8-CE-3A-1B-85</password>
+		<created>2012-12-12T15:15:36.9670672+01:00</created>
+		<lastLogin>2012-12-12T15:15:36.9670672+01:00</lastLogin>
+		<totalGameTime>P8083381DT21H9M45.3939075S</totalGameTime>
+		<characters>
+			<character index="0">1</character>
+			<character index="1">6</character>
+			<character index="2">10</character>
+		</characters>
+	</account>
+	<account>
+		<username>Glloq</username>
+		<password>21-74-A5-81-BD-C3-05-52-BC-45-0D-FA-C0-DB-13-98-A7-C1-2B-7E</password>
+		<created>2012-12-13T18:04:20.3336939+01:00</created>
+		<lastLogin>2012-12-13T18:04:20.3336939+01:00</lastLogin>
+		<totalGameTime>P4409107DT12H24M6.3761269S</totalGameTime>
+		<characters>
+			<character index="0">2</character>
+		</characters>
+	</account>
+</accounts>
