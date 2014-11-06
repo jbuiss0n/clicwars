@@ -1,0 +1,66 @@
+﻿* {
+  -ms-user-select: none; /* IE 10+ */
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.selectable {
+  -ms-user-select: auto;
+  -moz-user-select: auto;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+body {
+  background: #333;
+  color: #ECECEC;
+}
+
+.game {
+  width: 940px;
+  margin: auto;
+}
+
+.game .screen {
+  float: left;
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: auto;
+}
+
+.game .screen canvas {
+  position: absolute;
+  border-radius: 300px;
+  top: 0;
+  left: 0;
+}
+
+.game .chat {
+  float: left;
+  width: 600px;
+  height: 200px;
+}
+
+.game .chat .content {
+  height: 170px;
+  overflow: auto;
+}
+
+.game .player {
+  float: right;
+  width: 300px;
+}
+
+.death {
+  color: #4a0e0e;
+}
+
+.death h1 {
+  font-size: 40px;
+}
+
+.death h6 {
+  font-size: 8px;
+}

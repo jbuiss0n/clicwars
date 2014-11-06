@@ -1,0 +1,9 @@
+﻿<div ng-controller="ChatController">
+	<div class="content" scroll-glue>
+		<div ng-repeat="message in messages track by $index">{{ message }}</div>
+	</div>
+	<div>
+		<input class="input-sm" type="text" name="name" ng-model="message" />
+		<span class="btn btn-default btn-sm" ng-click="send()">Envoyer</span>
+	</div>
+</div>

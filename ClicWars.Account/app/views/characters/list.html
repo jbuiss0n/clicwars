@@ -1,0 +1,43 @@
+<div class="characters-list">
+
+  <h1>Characters list</h1>
+
+  <p class="text-right">
+    <a class="btn btn-xs btn-primary" ui-sref="characters.create">New character</a>
+  </p>
+
+  <ul class="list-group">
+    <li class="list-group-item row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-2">
+        Name
+      </div>
+      <div class="col-md-1">
+        Kills
+      </div>
+      <div class="col-md-1">
+        Deaths
+      </div>
+    </li>
+    <li class="list-group-item row" ng-repeat="character in list.characters">
+      <div class="col-md-1 play">
+        <button class="btn btn-danger" ng-click="list.play(character.Serial)">Play !</button>
+      </div>
+      <div class="col-md-1 body">
+        <div class="character-image" ng-style="{ 'background-position': list.getBodyPosition(character.Body) }" />
+      </div>
+      <div class="col-md-2 name">
+        {{ character.Name }}
+      </div>
+      <div class="col-md-1 kills">
+        {{ character.Kills }}
+      </div>
+      <div class="col-md-1 deaths">
+        {{ character.Deaths }}
+      </div>
+    </li>
+  </ul>
+</div>

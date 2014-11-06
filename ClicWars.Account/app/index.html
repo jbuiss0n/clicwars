@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="marvelExplorerApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="marvelExplorerApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="marvelExplorerApp"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="clicwars.account">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>{{ Page.title() }}</title>
+  <meta name="description" content="An AngularJS application to explore the Marvel Universe">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css({.tmp,app}) styles/main.css -->
+  <link rel="stylesheet" href="styles/account.css">
+  <!-- endbuild -->
+</head>
+<body>
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Clic Wars</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div ui-view>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="container">
+      <p class="text-muted text-center">ClicWars, the game. © 2014 <a href="http://www.linkedin.com/in/jbuisson">Jérémy Buisson</a></p>
+    </div>
+  </div>
+
+  <!--[if lt IE 9]>
+  <script src="bower_components/es5-shim/es5-shim.js"></script>
+  <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/easeljs/lib/easeljs-0.7.1.combined.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/config/config.local.js"></script>
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/app.js"></script>
+
+  <script src="scripts/core/controllers/login-controller.js"></script>
+  <script src="scripts/core/controllers/signin-controller.js"></script>
+  <script src="scripts/core/services/account-service.js"></script>
+  <script src="scripts/core/services/auth-service.js"></script>
+  <script src="scripts/core/services/game-service.js"></script>
+  <script src="scripts/core/services/page-service.js"></script>
+  <script src="scripts/core/directives/ng-match.js"></script>
+
+  <script src="scripts/profile/index.js"></script>
+  <script src="scripts/profile/controllers/profile-controller.js"></script>
+
+  <script src="scripts/characters/index.js"></script>
+  <script src="scripts/characters/controllers/characters-controller.js"></script>
+  <script src="scripts/characters/controllers/characters-list-controller.js"></script>
+  <script src="scripts/characters/controllers/characters-create-controller.js"></script>
+  <script src="scripts/characters/services/character-service.js"></script>
+
+
+  <!-- endbuild -->
+</body>
+</html>

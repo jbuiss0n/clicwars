@@ -1,0 +1,19 @@
+﻿<div class="game">
+  <h1>status: {{status}} / {{STATUS.DEAD}}</h1>
+
+  <div ng-show="status === STATUS.DEAD" ng-include="'/views/partials/death'"></div>
+
+	<div class="screen">
+		<canvas id="game-map-canvas" width="600" height="600"></canvas>
+		<canvas id="game-mobile-canvas" width="600" height="600"></canvas>
+		<canvas id="game-world-canvas" width="600" height="600"></canvas>
+	</div>
+
+	<div class="player" ng-include="'/views/partials/player'"></div>
+
+	<div class="chat" ng-include="'/views/partials/chat'" ></div>
+
+  @*<div class="screen" ng-class="{ active: status === STATUS.DEAD }">
+    <div ng-show="status === STATUS.DEAD" ng-include="'/views/partials/death'"></div>
+  </div>*@
+</div>

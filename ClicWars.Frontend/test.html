@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title></title>
+</head>
+<body>
+
+  <canvas id="canvas" width="600" height="600"></canvas>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//code.createjs.com/createjs-2013.12.12.min.js"></script>
+  <script>
+    var Mobile = function(body) {
+      var spite, self = this;
+      var pos = (Math.floor(body / 16) * 128) + ((body % 16) * 2);
+
+      sprite = new createjs.SpriteSheet({
+        images: ['/Content/game/sprites/characters.png'],
+        frames: { width: 32, height: 32, regX: 16, regY: 16 },
+        animations: {
+          north: [pos, pos + 1, 'north', 0.1],
+          east: [pos + 32, pos + 33, 'east', 0.1],
+          south: [pos + 64, pos + 65, 'south', 0.1],
+          west: [pos + 96, pos + 97, 'west', 0.1],
+          northeast: [pos, pos + 1, 'northeast', 0.1],
+          northwest: [pos, pos + 1, 'northwest', 0.1],
+          southeast: [pos + 64, pos + 65, 'southeast', 0.1],
+          southwest: [pos + 64, pos + 65, 'southwest', 0.1]
+        }
+      });
+
+      self.initialize(sprite);
+
+      self.currentFrame = 0;
+      self.x = 32;
+      self.y = 32;
+
+      self.gotoAndPlay('south');
+    };
+    Mobile.prototype = new createjs.Sprite();
+
+    var canvas = document.getElementById('canvas');
+    var stage = new createjs.Stage(canvas);
+    var mobile = new Mobile(5);
+
+    stage.addChild(mobile);
+
+    createjs.Ticker.setFPS(45);
+    createjs.Ticker.addEventListener('tick', stage.update.bind(stage));
+
+    $(document).keydown(function(e) {
+      var keys = { Up: 38, Down: 40, Left: 37, Right: 39 };
+
+      if (e.keyCode === keys.Up) {
+        mobile.gotoAndPlay('north');
+      }
+      else if (e.keyCode === keys.Down) {
+        mobile.gotoAndPlay('south');
+      }
+      else if (e.keyCode === keys.Left) {
+        mobile.gotoAndPlay('west');
+      }
+      else if (e.keyCode === keys.Right) {
+        mobile.gotoAndPlay('east');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<spawnings>
+	<spawning id="0">
+		<type>WebServer.Mobiles.Animals.Cat, WebServer</type>
+		<location x="100" y="100" />
+		<range>10</range>
+		<amount>1</amount>
+	</spawning>
+	<spawning id="1">
+		<type>WebServer.Mobiles.Animals.Cat, WebServer</type>
+		<location x="650" y="100" />
+		<range>10</range>
+		<amount>1</amount>
+	</spawning>
+</spawnings>

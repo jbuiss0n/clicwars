@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<accounts count="1">
+	<account>
+		<username>Herumor</username>
+		<password>6A-0D-26-15-FF-DA-B9-30-B9-64-C7-58-FD-C4-80-7F-8D-65-6A-CE</password>
+		<created>2014-10-31T16:15:33.9080878+01:00</created>
+		<lastLogin>2014-10-31T16:15:33.9080878+01:00</lastLogin>
+		<totalGameTime>PT3M21.9627654S</totalGameTime>
+		<characters>
+			<character index="0">1</character>
+			<character index="1">2</character>
+		</characters>
+	</account>
+</accounts>

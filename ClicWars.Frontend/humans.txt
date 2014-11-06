@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jérémy Buisson @Octo -- Developper -- http://twitter.com/jbuiss0n
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    AngularJS, jQuery, Bootstrap

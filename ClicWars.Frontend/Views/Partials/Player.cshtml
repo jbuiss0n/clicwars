@@ -1,0 +1,20 @@
+﻿<div ng-controller="PlayerController">
+	<div class="status">
+		<div class="body" ng-style="{ 'background-position': bodyBackgroundPosition }"></div>
+		<div class="hits">{{ hits }} / {{ maxHits }} ({{ Math.round(hits * maxHits / 100) }})</div>
+		<div class="mana">{{ mana }} / {{ maxMana }} ({{ Math.round(mana * maxMana / 100) }})</div>
+	</div>
+	<div class="caracteristic">
+		<ul>
+			<li ng-repeat="carac in caracteristics" ng-class="{ debuff: carac.isDebuffed, buff: carac.isBuffed }">
+				{{ carac.name }}: {{ carac.value }}
+			</li>
+		</ul>
+	</div>
+	@*<div class="statistic">
+			<ul>
+				<li>Killed: {{ killed }}</li>
+				<li>Dead: {{ dead }}</li>
+			</ul>
+		</div>*@
+</div>

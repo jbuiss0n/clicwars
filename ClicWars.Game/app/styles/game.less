@@ -1,0 +1,70 @@
+﻿* {
+  -ms-user-select: none; /* IE 10+ */
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.selectable {
+  -ms-user-select: auto;
+  -moz-user-select: auto;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+body {
+  padding-top: 50px;
+  background: #333;
+  color: #ECECEC;
+}
+
+.game {
+  width: 940px;
+  margin: auto;
+
+  .screen {
+    float: left;
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .chat {
+    float: left;
+    width: 600px;
+    height: 200px;
+
+    .content {
+      height: 170px;
+      overflow: auto;
+    }
+  }
+
+  .player {
+    float: right;
+    width: 300px;
+
+    .player {
+      .status {
+        .body {
+          width: 32px;
+          height: 32px;
+          background-image: url('../images/sprites/characters.png');
+        }
+
+        .hits {
+        }
+
+        .mana {
+        }
+      }
+    }
+  }
+}

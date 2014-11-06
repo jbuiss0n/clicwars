@@ -1,0 +1,33 @@
+<div class="signin">
+  <h1>Signin</h1>
+  <form role="form" name="signinForm" ng-submit="signin.onSignin()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="username" required ng-minlength="2" ng-maxlength="50">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="password" required ng-minlength="2" ng-maxlength="50">
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm password</label>
+      <input type="password" class="form-control" id="confirm-password" name="confirmPassword" placeholder="Confirm password" ng-model="confirmPassword" required ng-match="password">
+    </div>
+
+    <div ng-messages="signinForm.username.$error" ng-if="signinForm.username.$touched">
+      <div ng-message="required">The username is mandatory.</div>
+      <div ng-message="minlength">The username must be at least 2 characters.</div>
+      <div ng-message="maxlength">The username can't be more than 50 characters.</div>
+    </div>
+    <div ng-messages="signinForm.password.$error" ng-if="signinForm.password.$touched">
+      <div ng-message="required">The password is mandatory.</div>
+      <div ng-message="minlength">The password must be at least 2 characters.</div>
+      <div ng-message="maxlength">The password can't be more than 50 characters.</div>
+    </div>
+    <div ng-messages="signinForm.confirmPassword.$error" ng-if="signinForm.confirmPassword.$touched">
+      <div ng-message="match">The passwords doesn't match.</div>
+    </div>
+
+    <button type="submit" class="btn btn-default" ng-disabled="!signinForm.$valid">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+﻿<div class="characters-create">
+
+  <h1>Create character</h1>
+
+  <form name="createForm" ng-submit="create.onCreate()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="name" required ng-minlength="2" ng-maxlength="15">
+    </div>
+
+    <div class="form-group">
+      <label for="body">Body</label>
+      <input type="hidden" id="body" name="body" ng-model="body" required>
+      <div class="body-picker clearfix">
+        <div class="prev btn btn-default" ng-click="create.onPrev()" ng-disabled="body <= 0">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+        </div>
+        <div class="body-preview" ng-style="{ 'background-position': create.getFrontBodyPosition() }"></div>
+        <div class="body-preview" ng-style="{ 'background-position': create.getRightBodyPosition() }"></div>
+        <div class="body-preview" ng-style="{ 'background-position': create.getBackBodyPosition() }"></div>
+        <div class="body-preview" ng-style="{ 'background-position': create.getLeftBodyPosition() }"></div>
+        <div class="next btn btn-default" ng-click="create.onNext()" ng-disabled="body >= 54">
+          <span class="glyphicon glyphicon-arrow-right"></span>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-default">Create</button>
+  </form>
+</div>
