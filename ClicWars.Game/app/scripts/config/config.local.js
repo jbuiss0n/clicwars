@@ -4,7 +4,6 @@
   TILE_SIZE: 48,
   CANVAS: {
     MAP: 'game-map-canvas',
-    MOBILE: 'game-mobile-canvas',
     WORLD: 'game-world-canvas',
   },
   CHAT: {

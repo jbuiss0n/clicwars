@@ -12,8 +12,7 @@ angular
     'KeyboardService',
     'WorldService',
     'MapService',
-    'MobileService',
-    function($scope, $cookieStore, PACKET, GamePacket, ContentService, SocketService, KeyboardService, WorldService, MapService, MobileService) {
+    function($scope, $cookieStore, PACKET, GamePacket, ContentService, SocketService, KeyboardService, WorldService, MapService) {
       var self = this, _isConnected = false;
 
       var gameToken = $cookieStore.get('game-token')
@@ -27,7 +26,6 @@ angular
         createjs.Ticker.setFPS(45);
         createjs.Ticker.addEventListener('tick', function() {
           if (_isConnected) {
-            MobileService.update();
             MapService.update();
             WorldService.update();
           }
@@ -39,7 +37,6 @@ angular
       };
 
       var onLoad = function(packet) {
-        MobileService.reset();
         MapService.reset();
         WorldService.reset();
         _isConnected = true;
@@ -60,7 +57,6 @@ angular
         KeyboardService.init();
         WorldService.init(CONFIG.CANVAS.WORLD);
         MapService.init(CONFIG.CANVAS.MAP);
-        MobileService.init(CONFIG.CANVAS.MOBILE);
 
         SocketService.start(CONFIG.SERVER_LOCATION);
       });
