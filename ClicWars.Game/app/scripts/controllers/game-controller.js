@@ -4,7 +4,7 @@ angular
   .module('clicwars.game')
   .controller('GameController', [
     '$scope',
-    '$cookieStore',
+    'ipCookie',
     'PACKET',
     'GamePacket',
     'ContentService',
@@ -12,10 +12,10 @@ angular
     'KeyboardService',
     'WorldService',
     'MapService',
-    function($scope, $cookieStore, PACKET, GamePacket, ContentService, SocketService, KeyboardService, WorldService, MapService) {
+    function($scope, ipCookie, PACKET, GamePacket, ContentService, SocketService, KeyboardService, WorldService, MapService) {
       var self = this, _isConnected = false;
 
-      var gameToken = $cookieStore.get('game-token')
+      var gameToken = ipCookie('game-token');
 
       if (!gameToken) {
         window.location = CONFIG.BASE_ACCOUNT_URL;

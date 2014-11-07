@@ -4,13 +4,19 @@ angular
   .module('clicwars.account')
   .factory('AuthService', [
     '$resource',
-    '$cookies',
-    function($resource, $cookies) {
+    'ipCookie',
+    function($resource, ipCookie) {
+      var _cookie = ipCookie('auth') || {};
+
+      var updateCookie = function() {
+        ipCookie('auth', _cookie, { path: '/' });
+      };
+
       return {
         authenticate: function(data) {
           this.token(data.Token);
           this.username(data.Username);
-          $cookies.expires = data.Expires;
+          this.expires(data.Expires);
         },
         isAuthenticated: function() {
           return Date.now() < this.expires()
@@ -19,26 +25,29 @@ angular
         },
         token: function(value) {
           if (value) {
-            $cookies.token = value;
+            _cookie.token = value;
+            updateCookie();
           }
           else {
-            return $cookies.token || '';
+            return _cookie.token || '';
           }
         },
         username: function(value) {
           if (value) {
-            $cookies.username = value;
+            _cookie.username = value;
+            updateCookie();
           }
           else {
-            return $cookies.username || '';
+            return _cookie.username || '';
           }
         },
         expires: function(value) {
           if (value) {
-            $cookies.expires = value;
+            _cookie.expires = value;
+            updateCookie();
           }
           else {
-            return $cookies.expires || 0;
+            return _cookie.expires || 0;
           }
         }
       };

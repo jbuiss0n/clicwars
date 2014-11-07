@@ -1,7 +1,7 @@
 ﻿var CONFIG = {
-  SERVER_LOCATION: 'ws://23.102.23.148:8899/dungeon',
-  BASE_API_URL: 'http://23.102.23.148/api',
-  BASE_ACCOUNT_URL: 'http://23.102.23.148/account',
+  SERVER_LOCATION: 'ws://clicwarsvm.cloudapp.net:8899/dungeon',
+  BASE_API_URL: 'http://clicwarsvm.cloudapp.net/api',
+  BASE_ACCOUNT_URL: 'http://clicwarsvm.cloudapp.net/account',
   TILE_SIZE: 48,
   CANVAS: {
     MAP: 'game-map-canvas',

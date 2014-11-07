@@ -5,7 +5,6 @@ angular
     'ui.router',
     'ngResource',
     'ngMessages',
-    'ngCookies',
     'clicwars.account.profile',
     'clicwars.account.characters'
   ])

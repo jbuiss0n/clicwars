@@ -3,7 +3,8 @@
 angular
   .module('clicwars.account.characters', [
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'ipCookie'
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

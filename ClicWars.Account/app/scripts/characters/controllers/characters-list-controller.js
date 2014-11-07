@@ -5,11 +5,11 @@ angular
   .controller('CharactersListController', [
     '$scope',
     '$interval',
-    '$cookieStore',
+    'ipCookie',
     'AuthService',
     'GameService',
     'CharacterService',
-    function($scope, $interval, $cookieStore, AuthService, GameService, CharacterService) {
+    function($scope, $interval, ipCookie, AuthService, GameService, CharacterService) {
       var self = this, _x = 0;
 
       self.getBodyPosition = function(body) {
@@ -20,7 +20,7 @@ angular
 
       self.play = function(serial) {
         GameService.play(serial, function(result) {
-          $cookieStore.put('game-token', { username: AuthService.username(), token: result.Value })
+          ipCookie('game-token', { username: AuthService.username(), token: result.Value }, { path: '/' })
           window.location = CONFIG.BASE_GAME_URL;
         });
       };

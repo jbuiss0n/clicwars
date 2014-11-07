@@ -4,7 +4,7 @@ angular
   .module('clicwars.game', [
     'ui.router',
     'ngResource',
-    'ngCookies'
+    'ipCookie'
   ])
 
   .run(['$rootScope', '$state', '$stateParams', '$location', 'PageService', function($rootScope, $state, $stateParams, $location, PageService) {
