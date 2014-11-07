@@ -11,7 +11,7 @@ angular
 
       var onCreateSuccess = function(result) {
         AuthService.authenticate(result);
-        $scope.$state.go('profile');
+        $scope.$state.go('characters.list');
       };
 
       var onCreateError = function(error) {

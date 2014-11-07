@@ -84,6 +84,9 @@ namespace WebServer
 			if (Map == null)
 				return false;
 
+			if (!CanMove())
+				return false;
+
 			Point newLocation = Location;
 			Point oldLocation = Location;
 
@@ -245,6 +248,11 @@ namespace WebServer
 			return true;
 		}
 
+		public virtual bool CanMove()
+		{
+			return true;
+		}
+
 		public virtual void SendIncomingPacket()
 		{
 			if (Deleted || Map == null)
@@ -315,6 +323,7 @@ namespace WebServer
 		public virtual void OnDelete()
 		{
 			SendRemovingPacket();
+			KillRegenTimers();
 		}
 
 		public virtual void OnRemoving(Mobile mobile, Point oldLocation)
@@ -349,8 +358,7 @@ namespace WebServer
 
 		public virtual void OnDeath(Mobile killer)
 		{
-			KillRegenTimers();
-			Map.OnLeave(this);
+			Delete();
 		}
 
 		public virtual bool OnBeforeDeath()

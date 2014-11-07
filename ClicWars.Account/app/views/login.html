@@ -1,16 +1,20 @@
 <div class="login">
   <h1>Login</h1>
-    <form role="form" ng-submit="login.onLogin()">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+  <form role="form" ng-submit="login.onLogin()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+  <div class="signin-link">
+    <a ui-sref="signin" class="btn btn-link">Create and account here !</a>
+  </div>
 
   <div class="alert alert-danger" role="alert" ng-show="!!error">
     There is an error...

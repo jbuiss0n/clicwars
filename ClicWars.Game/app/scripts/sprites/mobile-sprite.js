@@ -8,11 +8,12 @@ angular
     };
     Mobile.prototype = new createjs.Sprite();
     Mobile.prototype.Sprite_initialize = Mobile.prototype.initialize;
-    Mobile.prototype.initialize = function(serial, body, image, position, direction) {
+    Mobile.prototype.initialize = function(serial, name, body, image, position, direction) {
       var sprite, self = this;
 
       self.serial = serial;
       self.body = body;
+      self.name = name;
 
       self.moving = false;
       self.idle = true;

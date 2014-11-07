@@ -1,2 +1,13 @@
 ﻿<canvas id="game-map-canvas" width="600" height="600"></canvas>
 <canvas id="game-world-canvas" width="600" height="600"></canvas>
+
+<div class="panel-death" ng-show="isDead">
+  <h1 ng-show="!killer">Ouch... You're dead...</h1>
+
+  <h1 ng-show="!!killer">Ouch... {{ killer.name }} killed you...</h1>
+  <div ng-show="!!killer" class="killer-body" ng-style="{ 'background-position': screen.bodyBackgroundPosition(killer.body) }"></div>
+  
+  <div>
+    <button class="btn btn-danger btn-lg" ng-click="screen.onRespawn()">Respawn !</button>
+  </div>
+</div>

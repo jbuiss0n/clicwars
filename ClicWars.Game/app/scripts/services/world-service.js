@@ -93,7 +93,7 @@ angular
             mobile = new FireballSprite(packet.Serial, ContentService.getImage('fireball').url, position, packet.Direction);
           }
           else {
-            mobile = new MobileSprite(packet.Serial, packet.Body, ContentService.getImage('mobiles').url, position, packet.Direction);
+            mobile = new MobileSprite(packet.Serial, packet.Name, packet.Body, ContentService.getImage('mobiles').url, position, packet.Direction);
           }
           mobiles.push(mobile);
           stage.addChild(mobile);
@@ -166,5 +166,9 @@ angular
         }
 
         stage.update();
+      };
+
+      self.find = function(serial) {
+        return mobiles.first('serial', serial);
       };
     }]);

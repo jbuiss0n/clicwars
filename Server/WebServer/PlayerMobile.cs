@@ -66,6 +66,14 @@ namespace WebServer
 			CreationDate = DateTime.Now;
 		}
 
+		public override bool CanMove()
+		{
+			if (Status == PlayerStatus.Dead)
+				return false;
+
+			return base.CanMove();
+		}
+
 		public override void OnIncomming(Mobile mobile, Point oldLocation)
 		{
 			base.OnIncomming(mobile, oldLocation);
@@ -110,10 +118,11 @@ namespace WebServer
 
 		public override void OnDeath(Mobile killer)
 		{
-			base.OnDeath(killer);
 			Deaths++;
+			KillRegenTimers();
+			Map.OnLeave(this);
 			Status = PlayerStatus.Dead;
-			SendPacket(PlayerDeathPacket.Acquire(this));
+			SendPacket(PlayerDeathPacket.Acquire(this, killer));
 			EventSink.InvokePlayerDeath(new PlayerDeathEventArgs(this, killer));
 		}
 
@@ -130,10 +139,19 @@ namespace WebServer
 			SendStatus();
 		}
 
+		public bool CanCast()
+		{
+			if (Status == PlayerStatus.Dead)
+				return false;
+
+			return true;
+		}
+
 		public void Resurect()
 		{
 			Hits = 100;
 			Mana = 100;
+			Status = PlayerStatus.Alive;
 
 			Map.OnEnter(this);
 
@@ -164,6 +182,9 @@ namespace WebServer
 
 		public void CastFireball(int x, int y)
 		{
+			if (!CanCast())
+				return;
+
 			var target = new Point(x, y);
 
 			if (!CheckCastFireball(target))

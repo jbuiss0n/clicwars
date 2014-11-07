@@ -31,14 +31,14 @@ angular
         views: {
           'screen': {
             templateUrl: 'views/screen/main.html',
-            controller: 'ScreenController'
+            controller: 'ScreenController as screen'
           },
           'player': {
             templateUrl: 'views/partials/player.html',
             controller: 'PlayerController'
           },
           'chat': {
-            template: 'Chat panel here.'
+            template: 'Chat here. Work in progress...'
           }
         }
       });

@@ -96,6 +96,8 @@ namespace WebServer.Network.Packet
 	{
 		public int Serial { get; set; }
 
+		public string Name { get; set; }
+
 		public int Body { get; set; }
 
 		public double X { get; set; }
@@ -111,7 +113,15 @@ namespace WebServer.Network.Packet
 
 		public static MobileIncomingPacket Acquire(Mobile mobile)
 		{
-			return new MobileIncomingPacket { Serial = mobile.Serial, Body = mobile.Body, X = mobile.Location.X, Y = mobile.Location.Y, Direction = (int)mobile.Direction };
+			return new MobileIncomingPacket
+			{
+				Serial = mobile.Serial,
+				Name = mobile.Name,
+				Body = mobile.Body,
+				X = mobile.Location.X,
+				Y = mobile.Location.Y,
+				Direction = (int)mobile.Direction
+			};
 		}
 	}
 
@@ -132,7 +142,13 @@ namespace WebServer.Network.Packet
 
 		public static MobileMovingPacket Acquire(Mobile mobile)
 		{
-			return new MobileMovingPacket { Serial = mobile.Serial, X = mobile.Location.X, Y = mobile.Location.Y, Direction = (int)mobile.Direction };
+			return new MobileMovingPacket
+			{
+				Serial = mobile.Serial,
+				X = mobile.Location.X,
+				Y = mobile.Location.Y,
+				Direction = (int)mobile.Direction
+			};
 		}
 	}
 
@@ -155,21 +171,21 @@ namespace WebServer.Network.Packet
 	{
 		public int Serial { get; set; }
 
+		public int Killer { get; set; }
+
 		public PlayerDeathPacket()
 			: base(PacketIds.PlayerDeath)
 		{
 		}
 
-		public static PlayerDeathPacket Acquire(PlayerMobile player)
+		public static PlayerDeathPacket Acquire(Mobile player, Mobile killer)
 		{
-			return new PlayerDeathPacket { Serial = player.Serial };
+			return new PlayerDeathPacket { Serial = player.Serial, Killer = killer.Serial };
 		}
 	}
 
 	public class RespawnRequestPacket : Packet
 	{
-		public int Serial { get; set; }
-
 		public RespawnRequestPacket()
 			: base(PacketIds.PlayerRespawnRequest)
 		{
@@ -177,7 +193,7 @@ namespace WebServer.Network.Packet
 
 		public static RespawnRequestPacket Acquire(PlayerMobile player)
 		{
-			return new RespawnRequestPacket { Serial = player.Serial };
+			return new RespawnRequestPacket();
 		}
 	}
 

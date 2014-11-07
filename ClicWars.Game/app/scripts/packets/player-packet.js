@@ -20,9 +20,8 @@ angular
         this.Id = PACKET.PLAYER_EVENT.DEATH;
         this.Serial = serial;
       },
-      RespawnRequestPacket: function(serial) {
-        this.Id = PACKET.PLAYER_EVENT.RESPAWN;
-        this.Serial = serial;
+      RespawnRequestPacket: function() {
+        this.Id = PACKET.PLAYER_EVENT.RESPAWN_REQUEST;
       },
     };
   }]);

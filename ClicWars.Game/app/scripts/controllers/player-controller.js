@@ -1,4 +1,6 @@
-﻿angular
+﻿'use strict';
+
+angular
   .module('clicwars.game')
   .controller('PlayerController', [
     '$scope',
