@@ -17,8 +17,10 @@ angular
 
       var gameToken = $cookieStore.get('game-token')
 
-      if (!gameToken)
+      if (!gameToken) {
+        window.location = CONFIG.BASE_ACCOUNT_URL;
         return;
+      }
 
       var onConnected = function() {
         SocketService.send(new GamePacket.LoginPacket(gameToken.username, gameToken.token));

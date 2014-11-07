@@ -1,5 +1,6 @@
 ﻿var CONFIG = {
-  BASE_API_URL: 'http://137.117.137.94:8181/api',
+  BASE_API_URL: 'http://23.102.23.148/api',
+  BASE_GAME_URL: 'http://23.102.23.148/game',
 };
 
 window.CONFIG = CONFIG;
